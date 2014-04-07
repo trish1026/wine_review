@@ -1,0 +1,1 @@
+get "/wine" => "wine#index", as: 'wine'
