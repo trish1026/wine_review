@@ -5,10 +5,7 @@ class CreateWines < ActiveRecord::Migration
       t.integer :year
       t.string :winery
       t.string :country
-      t.string :string
       t.string :varietal
-      t.string :string
-
       t.timestamps
     end
   end
