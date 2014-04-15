@@ -1,1 +1,1 @@
-get "/wines" => "wines#indes", as: 'wines'
+get "/wines" => "wines#index", as: 'wines'
