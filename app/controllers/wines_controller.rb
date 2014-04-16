@@ -1,5 +1,9 @@
 class WinesController < ApplicationController
   def index
-  	@wines = ["Beronia Tempranillo Crianza", "Cordorniu Pinot Noir", "Alabanta Albarino"]
+  	@wines = Wine.all
+  end
+
+  def show
+  	@wine =Wine.find(params[:id])
   end
 end
