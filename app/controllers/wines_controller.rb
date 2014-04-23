@@ -15,19 +15,24 @@ before_action :set_wine, only: [ :show, :edit, :update, :destroy ]
   end
  
   def create
-    @wine = Wine.new (wine_params)
-    @wine.save
-    redirect_to @wine
+    @wine = Wine.new(wine_params)
+    if @wine.save
+      redirect_to @wine, notice: "#{@wine.name} was created!"
+    else
+      render :new
+    end
   end 
-
+  
   def edit
   	# @wine = Wine.find(params[:id])
   end
   	
   def update
-  	# @wine = Wine.find(params[:id])
-    @wine.update(wine_params)
-  	redirect_to @wine
+    if @wine.update(wine_params)
+      redirect_to @wine, notice: "#{@wine.name} was created!"
+    else
+      render :new
+    end
   end
 
   def destroy
