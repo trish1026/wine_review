@@ -1,4 +1,5 @@
 class Wine < ActiveRecord::Base
+	has_many :reviews, dependent: :destroy
 
 VARIETALS = ['Merlot', 'Pinot Noir', 'Tempranillo' ]
 
@@ -8,5 +9,12 @@ validates :year,
   unless: "year.present?"
 
 validates :varietal, inclusion: { in:VARIETALS }
+
+  def average_stars
+  	if reviews.loaded?
+      reviews.map(&:stars).compact.average_stars
+  else
+  	reviews.average(:stars)
+  end
 
 end
