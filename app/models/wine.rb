@@ -11,10 +11,6 @@ validates :year,
 validates :varietal, inclusion: { in:VARIETALS }
 
   def average_stars
-  	if reviews.loaded?
-      reviews.map(&:stars).compact.average_stars
-  else
   	reviews.average(:stars)
   end
-
 end

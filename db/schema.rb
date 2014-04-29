@@ -15,21 +15,22 @@ ActiveRecord::Schema.define(version: 20140428031934) do
 
   create_table "reviews", force: true do |t|
     t.string   "name"
-    t.string   "start"
+    t.string   "stars"
     t.string   "integer"
     t.text     "comment"
     t.string   "wine"
-    t.string   "references"
+    t.integer  "wine_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "reviews", ["wine_id"], name: "index_reviews_on_wine_id"
 
   create_table "wines", force: true do |t|
     t.string   "name"
     t.integer  "year"
     t.string   "winery"
     t.string   "country"
-    t.string   "string"
     t.string   "varietal"
     t.datetime "created_at"
     t.datetime "updated_at"

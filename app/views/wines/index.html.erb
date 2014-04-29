@@ -5,7 +5,7 @@
 
   <li>
   	<%= link_to(wine.name, wine) %>
-    by <%= wine.author %><br/>
+    by <%= wine.year %><br/>
     <%= format_average_stars(wine) %>
     <% if wine.reviews.any? %>
       (out of <%= pluralize(wine.reviews.size, 'review') %>)
